@@ -1,0 +1,10 @@
+[tools]
+ruby = "3.4.2"
+
+[tasks.test]
+description = "Run RSpec tests"
+run = "bundle exec rspec"
+
+[tasks.lint]
+description = "Run RuboCop"
+run = "bundle exec rubocop"

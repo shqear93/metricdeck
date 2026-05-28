@@ -1,0 +1,29 @@
+# frozen_string_literal: true
+
+module Metrics
+  module Calculators
+    class <%= class_name %>Calculator
+      include Metricdeck::Calculators::BaseCalculator
+      include Metricdeck::Helpers::CardHelpers
+
+      def validate_context(context)
+        # Add validation logic here
+        # Example:
+        # raise ArgumentError, "Missing required context: employee_id" unless context[:employee_id].present?
+      end
+
+      def perform_calculation(context)
+        # Calculate current and previous values
+        current = 0
+        previous = 0
+
+        create_metric_card(
+          card_id,
+          value: current,
+          current: current,
+          previous: previous
+        )
+      end
+    end
+  end
+end
