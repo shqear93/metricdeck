@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/shqear93/metricdeck/compare/metricdeck-v0.1.0...metricdeck/v0.1.1) (2026-05-29)
+
+
+### Bug Fixes
+
+* include release-please manifest in gem files ([6aff160](https://github.com/shqear93/metricdeck/commit/6aff1609e0fce806f1af6dfd392b521dd0a4dac5))
+
 ## [0.1.0] - 2026-05-27
 
 - Initial release as **metricdeck**
