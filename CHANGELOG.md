@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/shqear93/metricdeck/compare/metricdeck/v0.1.1...metricdeck/v0.1.2) (2026-05-29)
+
+
+### Bug Fixes
+
+* bound rails dependency to avoid open-ended warning ([ff74091](https://github.com/shqear93/metricdeck/commit/ff740911cf843e1c3024db98face4c631101547d))
+
 ## [0.1.1](https://github.com/shqear93/metricdeck/compare/metricdeck-v0.1.0...metricdeck/v0.1.1) (2026-05-29)
 
 
