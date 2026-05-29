@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.3](https://github.com/shqear93/metricdeck/compare/metricdeck/v0.1.2...metricdeck/v0.1.3) (2026-05-29)
+
+
+### Bug Fixes
+
+* verify end-to-end automated release pipeline ([2ea3800](https://github.com/shqear93/metricdeck/commit/2ea3800a9e37c299f43d6c4fc18d226f5034a184))
+
 ## [0.1.2](https://github.com/shqear93/metricdeck/compare/metricdeck/v0.1.1...metricdeck/v0.1.2) (2026-05-29)
 
 
