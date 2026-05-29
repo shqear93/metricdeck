@@ -16,11 +16,10 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = '>= 3.4.0'
 
-  spec.metadata['allowed_push_host'] = 'https://rubygems.pkg.github.com/athar-association'
+  spec.metadata['allowed_push_host'] = 'https://rubygems.org'
   spec.metadata['homepage_uri'] = spec.homepage
-  spec.metadata['source_code_uri'] = 'https://github.com/athar-association/athar-ems'
-  spec.metadata['changelog_uri'] = 'https://github.com/athar-association/athar-ems/blob/main/gems/metricdeck/CHANGELOG.md'
-  spec.metadata['github_repo'] = 'ssh://github.com/athar-association/athar-ems'
+  spec.metadata['source_code_uri'] = 'https://github.com/shqear93/metricdeck'
+  spec.metadata['changelog_uri'] = 'https://github.com/shqear93/metricdeck/blob/main/CHANGELOG.md'
   spec.metadata['rubygems_mfa_required'] = 'true'
 
   spec.files = Dir.glob('{lib,generators}/**/*') + %w[LICENSE.txt Rakefile README.md CHANGELOG.md]
