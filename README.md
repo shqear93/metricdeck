@@ -1,5 +1,8 @@
 # metricdeck
 
+[![CI](https://github.com/shqear93/metricdeck/actions/workflows/ci.yml/badge.svg)](https://github.com/shqear93/metricdeck/actions/workflows/ci.yml)
+[![Gem Version](https://badge.fury.io/rb/metricdeck.svg)](https://rubygems.org/gems/metricdeck)
+
 A pluggable metric card framework for Ruby on Rails applications.
 
 ## Installation
