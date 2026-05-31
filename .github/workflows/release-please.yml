@@ -8,6 +8,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  id-token: write
 
 jobs:
   release-please:
@@ -29,13 +30,7 @@ jobs:
           ruby-version: '3.4'
           bundler-cache: true
 
-      - name: Publish to RubyGems.org
+      - uses: rubygems/release-gem@v1
         if: ${{ steps.release.outputs.release_created }}
-        run: |
-          mkdir -p ~/.gem
-          printf -- "---\n:rubygems_api_key: %s\n" "$RUBYGEMS_API_KEY" > ~/.gem/credentials
-          chmod 0600 ~/.gem/credentials
-          gem build metricdeck.gemspec
-          gem push ./*.gem
-        env:
-          RUBYGEMS_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
+        with:
+          setup-trusted-publisher: true
