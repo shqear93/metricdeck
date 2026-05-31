@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.summary = 'Pluggable metric card framework for Rails'
   spec.description = 'A calculator registry that produces standardized metric cards with trends, ' \
                      'comparisons, and i18n labels.'
-  spec.homepage = 'https://github.com/athar/metricdeck'
+  spec.homepage = 'https://github.com/shqear93/metricdeck'
   spec.license = 'MIT'
 
   spec.required_ruby_version = '>= 3.4.0'
