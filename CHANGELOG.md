@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.4](https://github.com/shqear93/metricdeck/compare/metricdeck/v0.1.3...metricdeck/v0.1.4) (2026-05-31)
+
+
+### Bug Fixes
+
+* update gemspec homepage to correct repo URL ([2b9ea5b](https://github.com/shqear93/metricdeck/commit/2b9ea5bb9d65ea270d9914165c11dd476ded6285))
+
 ## [0.1.3](https://github.com/shqear93/metricdeck/compare/metricdeck/v0.1.2...metricdeck/v0.1.3) (2026-05-29)
 
 
