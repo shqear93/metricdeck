@@ -1,0 +1,58 @@
+name: Compare Metric Cards
+model: openai/gpt-4o-mini
+modelParameters:
+  temperature: 0.3
+messages:
+  - role: system
+    content: |
+      You are a data analyst comparing multiple metric cards. Identify
+      correlations, trade-offs, and overall performance patterns across
+      the metrics. Provide a holistic view of the data.
+  - role: user
+    content: |
+      Compare and analyze the following metric cards:
+
+      ```json
+      {{metricCards}}
+      ```
+
+      Please provide:
+      1. An executive summary of all metrics
+      2. Correlations or relationships between metrics
+      3. Metrics that are performing well vs. poorly
+      4. Potential trade-offs (e.g., revenue up but customer satisfaction down)
+      5. Overall health score and narrative
+
+testData:
+  - metricCards: |
+      [
+        {
+          "card_id": "monthly_revenue",
+          "title": "Monthly Revenue",
+          "value": 125000,
+          "formatted_value": "$125,000",
+          "comparison": {"change_percentage": 13.6, "change_direction": "up"}
+        },
+        {
+          "card_id": "customer_acquisition_cost",
+          "title": "Customer Acquisition Cost",
+          "value": 45,
+          "formatted_value": "$45",
+          "comparison": {"change_percentage": 12.5, "change_direction": "up"}
+        },
+        {
+          "card_id": "customer_satisfaction",
+          "title": "Customer Satisfaction (NPS)",
+          "value": 42,
+          "formatted_value": "42",
+          "comparison": {"change_percentage": -8.7, "change_direction": "down"}
+        }
+      ]
+
+evaluators:
+  - name: Identifies trade-offs
+    string:
+      contains: "trade-off"
+  - name: Provides executive summary
+    string:
+      contains: "summary"

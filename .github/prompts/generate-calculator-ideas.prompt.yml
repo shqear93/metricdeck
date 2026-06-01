@@ -1,0 +1,42 @@
+name: Generate Calculator Ideas
+model: openai/gpt-4o-mini
+modelParameters:
+  temperature: 0.7
+messages:
+  - role: system
+    content: |
+      You are a Ruby on Rails developer specializing in metrics and analytics.
+      You generate ideas for new metric calculators using the metricdeck gem
+      framework. Each calculator should be practical, measurable, and aligned
+      with business goals.
+  - role: user
+    content: |
+      Given the following business context and existing calculators,
+      suggest 3-5 new calculator ideas that would complement the current metrics:
+
+      Business Domain: {{domain}}
+      Existing Calculators:
+      {{existingCalculators}}
+
+      For each idea, provide:
+      1. Calculator class name (Ruby convention, e.g., `MonthlyActiveUsersCalculator`)
+      2. Card ID and title
+      3. Description of what it measures
+      4. Required context keys (data needed to compute the metric)
+      5. Sample implementation outline
+      6. Why this metric matters
+
+testData:
+  - domain: "SaaS subscription platform"
+    existingCalculators: |
+      - MonthlyRevenueCalculator (revenue, MRR)
+      - ChurnRateCalculator (churn percentage)
+      - ActiveUsersCalculator (DAU/MAU)
+
+evaluators:
+  - name: Provides Ruby class names
+    string:
+      contains: "Calculator"
+  - name: Includes context requirements
+    string:
+      contains: "context"

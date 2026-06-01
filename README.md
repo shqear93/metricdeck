@@ -75,6 +75,29 @@ en:
       last_year: "vs last year"
 ```
 
+## GitHub Models Prompts
+
+metricdeck includes reusable AI prompts in `.github/prompts/` for use with [GitHub Models](https://github.com/marketplace/models).
+
+| Prompt | Purpose |
+|--------|---------|
+| `analyze-metric-card` | Deep-dive analysis of a single metric card |
+| `compare-metric-cards` | Cross-metric correlation and trade-off analysis |
+| `dashboard-summary` | Executive summary of a full dashboard |
+| `generate-calculator-ideas` | AI-assisted brainstorming for new calculators |
+| `metric-health-check` | Audit metrics for data quality issues |
+
+### Usage
+
+1. Go to [GitHub Models](https://github.com/marketplace/models)
+2. Load a `.prompt.yml` file from this repo
+3. Paste your metric JSON in the `{{variable}}` placeholders
+4. Run the prompt against your chosen model
+
+### Customizing
+
+Copy any `.prompt.yml` and adjust the `model` or `modelParameters` to suit your needs. See [GitHub Docs](https://docs.github.com/en/github-models/use-github-models/storing-prompts-in-github-repositories) for the full prompt file specification.
+
 ## Migrating from Athar EMS People Service
 
 If you're migrating from the internal `Statistics` module in the Athar EMS people service:

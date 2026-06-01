@@ -1,0 +1,58 @@
+name: Metric Health Check
+model: openai/gpt-4o-mini
+modelParameters:
+  temperature: 0.2
+messages:
+  - role: system
+    content: |
+      You are a metrics health auditor. Review a set of metric cards and
+      flag issues like missing comparisons, stale data, suspicious values,
+      or missing metadata. Be thorough and systematic.
+  - role: user
+    content: |
+      Perform a health check on the following metric cards:
+
+      ```json
+      {{metricCards}}
+      ```
+
+      Check for:
+      1. Missing or null comparison data
+      2. Extreme percentage changes (>100% or <-50%)
+      3. Missing trend data for trend-based metrics
+      4. Inconsistent formatting
+      5. Missing required metadata (units, currency, time range)
+      6. Duplicate card IDs
+      7. Negative values where only positive should exist
+
+      Output a report with:
+      - PASS / WARN / FAIL status for each card
+      - Specific issues found
+      - Recommended fixes
+
+testData:
+  - metricCards: |
+      [
+        {
+          "card_id": "revenue",
+          "title": "Revenue",
+          "value": 125000,
+          "formatted_value": "$125,000",
+          "comparison": {"change_percentage": 150.0, "change_direction": "up"}
+        },
+        {
+          "card_id": "users",
+          "title": "Active Users",
+          "value": -5,
+          "formatted_value": "-5",
+          "comparison": null
+        }
+      ]
+
+evaluators:
+  - name: Flags negative values
+    string:
+      contains: "negative"
+  - name: Flags extreme changes
+    string:
+      contains: "150"

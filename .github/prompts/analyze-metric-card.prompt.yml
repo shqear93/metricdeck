@@ -1,0 +1,54 @@
+name: Analyze Metric Card
+model: openai/gpt-4o-mini
+modelParameters:
+  temperature: 0.3
+messages:
+  - role: system
+    content: |
+      You are a business intelligence analyst. Analyze the given metric card
+      data and provide actionable insights. Focus on trends, anomalies, and
+      recommendations. Be concise and data-driven.
+  - role: user
+    content: |
+      Analyze the following metric card data and provide insights:
+
+      ```json
+      {{metricCard}}
+      ```
+
+      Please provide:
+      1. A brief summary of what this metric represents
+      2. Key observations about the current value vs. comparison
+      3. Trend analysis (if trend data is present)
+      4. 2-3 actionable recommendations
+      5. Any anomalies or concerns
+
+testData:
+  - metricCard: |
+      {
+        "card_id": "monthly_revenue",
+        "title": "Monthly Revenue",
+        "value": 125000,
+        "formatted_value": "$125,000",
+        "comparison": {
+          "value": 110000,
+          "formatted_value": "$110,000",
+          "change_percentage": 13.6,
+          "change_direction": "up"
+        },
+        "trend": [
+          {"period": "Jan", "value": 95000},
+          {"period": "Feb", "value": 102000},
+          {"period": "Mar", "value": 110000},
+          {"period": "Apr", "value": 125000}
+        ],
+        "metadata": {"currency": "USD", "department": "Sales"}
+      }
+
+evaluators:
+  - name: Contains actionable recommendations
+    string:
+      contains: "recommend"
+  - name: Mentions trend analysis
+    string:
+      contains: "trend"

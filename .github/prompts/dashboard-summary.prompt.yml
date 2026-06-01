@@ -1,0 +1,49 @@
+name: Dashboard Summary
+model: openai/gpt-4o-mini
+modelParameters:
+  temperature: 0.4
+messages:
+  - role: system
+    content: |
+      You are a concise executive assistant. Summarize dashboard metrics
+      into a brief narrative suitable for a daily standup or weekly report.
+      Focus on what changed, why it matters, and what needs attention.
+  - role: user
+    content: |
+      Summarize the following dashboard metrics:
+
+      ```json
+      {{metricCards}}
+      ```
+
+      Format:
+      - One-sentence overall status (green/yellow/red)
+      - Bullet points for key movers (up or down significantly)
+      - One call-to-action if anything needs immediate attention
+
+testData:
+  - metricCards: |
+      [
+        {
+          "card_id": "revenue",
+          "title": "Monthly Revenue",
+          "value": 125000,
+          "formatted_value": "$125K",
+          "comparison": {"change_percentage": 13.6, "change_direction": "up"}
+        },
+        {
+          "card_id": "expenses",
+          "title": "Monthly Expenses",
+          "value": 98000,
+          "formatted_value": "$98K",
+          "comparison": {"change_percentage": 22.5, "change_direction": "up"}
+        }
+      ]
+
+evaluators:
+  - name: Provides status indicator
+    string:
+      containsAny:
+        - "green"
+        - "yellow"
+        - "red"
