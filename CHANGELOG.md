@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.5](https://github.com/shqear93/metricdeck/compare/metricdeck/v0.1.4...metricdeck/v0.1.5) (2026-06-01)
+
+
+### Features
+
+* add GitHub Models prompt files for metric analysis ([4b9de1c](https://github.com/shqear93/metricdeck/commit/4b9de1cc8747d8c7b6911c6ea8deb8fbd09fcd98)), closes [#1](https://github.com/shqear93/metricdeck/issues/1)
+
 ## [0.1.4](https://github.com/shqear93/metricdeck/compare/metricdeck/v0.1.3...metricdeck/v0.1.4) (2026-05-31)
 
 
